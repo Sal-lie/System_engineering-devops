@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script prints a message indefinitely and handles SIGTERM signals
 
-# Trap the SIGTERM signal (sent by 'kill' by default)
+# Trap the SIGTERM signal, print the message, and immediately exit
 trap 'echo "I am invincible!!!"; exit' SIGTERM
 
 while true
