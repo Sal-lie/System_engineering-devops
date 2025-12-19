@@ -1,11 +1,13 @@
-#!/usr/bin/env bash 
-# Initialize the counter
-counter=1
+#!/usr/bin/env bash
+
+# Initialize the counter variable at 1
+count=1
+
 # Use a while loop to iterate from 1 to 20
-while [ $counter -le 20 ]
+while [ $count -le 20 ]
 do
-    # Use a case statement to check for specific numbers
-    case $counter in
+    # Use a case statement to check for specific numbers and display custom messages
+    case $count in
         4)
             echo "4 and then bad luck from China"
             ;;
@@ -16,10 +18,10 @@ do
             echo "17 and then bad luck from Italy"
             ;;
         *)
-            echo "$counter"
+            echo "$count"
             ;;
     esac
 
-    # Increment the counter
-    ((counter++))
+    # Increment the counter for the next iteration
+    ((count++))
 done
