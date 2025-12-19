@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This script prints a message indefinitely and handles SIGTERM signals
-
 # Trap the SIGTERM signal, print the message, and immediately exit
 trap 'echo "I am invincible!!!"; exit' SIGTERM
-
+# This script prints "OK" to standard output
+echo "OK"
 while true
 do
     echo "To infinity and beyond"
