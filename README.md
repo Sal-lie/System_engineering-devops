@@ -1,1 +1,2 @@
-# System_engineering-devops
+#!/bin/bash
+Se102 projects, pathways
