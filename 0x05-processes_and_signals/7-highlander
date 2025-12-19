@@ -1,9 +1,23 @@
-#!/usr/bin/env bash
-# This script prints a message indefinitely and handles SIGTERM signals
-# Trap the SIGTERM signal, print the message, and immediately exit
-trap 'echo "I am invincible!!!"; exit' SIGTERM
-# This script prints "OK" to standard output
-echo "OK"
+#!/bin/bash
+# Finds and sends a SIGTERM signal to the 7-highlander process
+# Find the PID of the 7-highlander process
+PID=$(pgrep -f "7-highlander")
+
+if [ -n "$PID" ]; then
+    # Send SIGTERM (Signal 15) to the process
+    # Note: pkill is used here as an alternative to kill/killall 
+    # to meet the requirement of exploring alternative methods
+    pkill -15 -f "7-highlander"
+    echo "Sent SIGTERM to 7-highlander (PID: $PID)"
+else
+    echo "7-highlander process not found."
+fi
+#!/bin/bash
+# A script that ignores the default termination behavior of SIGTERM
+
+# Trap SIGTERM (Signal 15) and print a message instead of exiting
+trap "echo 'I am invincible!!!'" SIGTERM
+
 while true
 do
     echo "To infinity and beyond"
