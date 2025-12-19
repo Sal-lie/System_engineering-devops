@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # A script that prints a message when receiving SIGTERM instead of terminating
 
+# Add this line to the script:
 trap "echo 'I am invincible!!!'" SIGTERM
 
 while true
@@ -8,8 +9,3 @@ do
     echo "To infinity and beyond"
     sleep 2
 done
-#!/usr/bin/env bash
-# A script that finds and signals the 7-highlander process using pkill
-
-# Find the PID of 7-highlander and send SIGTERM (signal 15)
-pkill -15 -f "7-highlander"
