@@ -1,21 +1,6 @@
-#!/bin/bash
-# Finds and sends a SIGTERM signal to the 7-highlander process
-# Find the PID of the 7-highlander process
-PID=$(pgrep -f "7-highlander")
+#!/usr/bin/env bash
+# A script that prints a message when receiving SIGTERM instead of terminating
 
-if [ -n "$PID" ]; then
-    # Send SIGTERM (Signal 15) to the process
-    # Note: pkill is used here as an alternative to kill/killall 
-    # to meet the requirement of exploring alternative methods
-    pkill -15 -f "7-highlander"
-    echo "Sent SIGTERM to 7-highlander (PID: $PID)"
-else
-    echo "7-highlander process not found."
-fi
-#!/bin/bash
-# A script that ignores the default termination behavior of SIGTERM
-
-# Trap SIGTERM (Signal 15) and print a message instead of exiting
 trap "echo 'I am invincible!!!'" SIGTERM
 
 while true
@@ -23,3 +8,8 @@ do
     echo "To infinity and beyond"
     sleep 2
 done
+#!/usr/bin/env bash
+# A script that finds and signals the 7-highlander process using pkill
+
+# Find the PID of 7-highlander and send SIGTERM (signal 15)
+pkill -15 -f "7-highlander"
