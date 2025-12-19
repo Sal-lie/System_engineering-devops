@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#use SIGKILL to end 7-highlander
+SIGKILL 7-highlander
