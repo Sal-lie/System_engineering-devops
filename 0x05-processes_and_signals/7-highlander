@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # A script that prints a message when receiving SIGTERM instead of terminating
-invincible_message() { echo "I am invincible!!!"}
+# Function to handle SIGTERM signal
+invincible_message() {
+    echo "I am invincible!!!"
+}
 
 # Trap the SIGTERM signal and call the invincible_message function
 trap 'invincible_message' SIGTERM
