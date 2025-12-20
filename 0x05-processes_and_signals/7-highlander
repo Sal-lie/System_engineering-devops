@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
-# A script that prints a message when receiving SIGTERM instead of terminating
-# Function to handle SIGTERM signal
-invincible_message() {
+# 7-highlander - Displays a message indefinitely and handles SIGTERM
+
+# Function to handle SIGTERM
+handle_sigterm() {
     echo "I am invincible!!!"
 }
 
-# Trap the SIGTERM signal and call the invincible_message function
-trap 'invincible_message' SIGTERM
+# Trap SIGTERM (signal 15)
+trap 'handle_sigterm' SIGTERM
 
 # Infinite loop
-while true; do
+while true
+do
     echo "To infinity and beyond"
     sleep 2
 done
