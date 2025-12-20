@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Find the Process ID (PID) of the 7-highlander script
+# pgrep searches for processes by name
+PID=$(pgrep 7-highlander)
+
+if [ -z "$PID" ]; then
+    echo "7-highlander is not running."
+else
+    echo "Sending SIGTERM to 7-highlander (PID: $PID)..."
+    # Send the SIGTERM signal to the process
+    # The 7-highlander script is designed to catch this, not terminate
+    kill -SIGTERM "$PID"
+fi
