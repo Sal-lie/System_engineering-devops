@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # A script that prints a message when receiving SIGTERM instead of terminating
-# Trap SIGTERM to print your message
-trap "echo 'I am invincible!!!'" SIGTERM
+invincible_message() { echo "I am invincible!!!"}
 
-while true
-do
+# Trap the SIGTERM signal and call the invincible_message function
+trap 'invincible_message' SIGTERM
+
+# Infinite loop
+while true; do
     echo "To infinity and beyond"
-    # Run sleep in background and wait for its PID ($!)
-    sleep 2 & wait $!
+    sleep 2
 done
